@@ -21,3 +21,8 @@ To rent books online from a library.(Type of an e-commerce website)
   - Contains all the backend for the project
 
 * Databases Created on postsql through django
+
+# Scalability Aspects(scalable on features)
+- Order Viewing page
+- Tracking page
+- API connected to the database for extracting order details
