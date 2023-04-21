@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.container{
+  padding: 100px;
+}
+.link{
+  height: 368.45px;
+  width: 450.38px;
+}
+
+</style> 
+
+<div class="container align-content-center fw-semibold">
+    </h1>Books Available </h1>
+<div>
+
+<div class="row-cols-auto">
+    {% for books in book_objects %}
+     
+    <div class="container row align-items-md-stretch" id='container'>
+      <a href="{% url 'library:requestpanel' %}" class='link' value="{{books.slug}}"> <!--my thought process is right now to make a boolean field and take in the user form and then use get request to find the books.book_name and make a foreign key and conenct it to the user.-->
+        <form action= "{% url 'library:requestpanel' %}" method='POST'>
+          {% csrf_token %}
+        <button class="btn btn-outline-dark" type='btn btn-outline-dark' id="slug" value="{{books.slug}}">
+        
+        <div class="container col-l-5 " >
+          <h3>{{books.book_name}}</h3>
+          <p>{{books.author_name}}</p>
+          {% if books.is_issueable is True %}
+            <p>The book is issueable</p>
+          {% else %}
+            <p>This book is not issueable</p> 
+          {% endif %} 
+          
+       </div> 
+      </button>
+      <input type="hidden" name="slug" value="{{books.slug}}">
+    </form>
+    </a>  
+    </div>
+     
+ 
+    {% endfor %}
+  
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .container{
+    padding: 80px;
+  }
+  </style>
+<body>
+    <div class="container align-content-center fw-semi-bold">
+    </h1>Hello {{ user.get_username }}</h1>
+    <div>
+<div class="container">
+    <!---implement css form-->
+    <div class="row align-items-md-stretch">
+      <div class="container col-l-7 " label='form'>
+          <form method='POST' class="bg-opacity-100">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="email" class="form-label">Email ID</label> 
+              <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="{{ user.get_email }}" initial="None">
+            </div>
+            <div class="mb-3">
+            <label class="form-label" for="Address">Address</label>
+            <input class="form-control" type="textarea" name="Address" id="Address" placeholder="{{ address }}" initial="None">
+            </div>
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alret-dismissible-fade-show" role="alert">
+              <strong>Message:</strong>{{message}}
+              <button type='button' class='close' data-dismiss='alert' aria-label='close'>
+              <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+            {% endfor %}
+            <input type="submit" id="submit" class="btn btn-primary" type="button">
+          </form>   
+       </div> 
+  </body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+
+
+.container{
+  padding: 85px;
+}
+</style> 
+<header class="container-fluid">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container bg-grey">
+    <h1 class="display-3 fw-semibold">Book Form</h1>
+    {% if user.is_authenticated %}
+    <p class="lead">hello, you can enter book details here. </p>
+    {% else %}
+    <p>You don't have the permission to enter new book</p>
+    {% endif %}
+    
+    <hr class="my-2">
+  </div>
+</div>
+</header>
+{% if user.is_staff == True %}
+<div class="container align-content-center fw-semibold">
+    </h1>Enter New Book Detail</h1>
+<div>
+<div class="container">
+    <!---implement css form-->
+    <div class="row align-items-md-stretch">
+      <div class="container col-l-7 " label='form'>
+          <form method='POST' class="bg-opacity-100">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="book_name" class="form-label">Book Name</label>
+              <div id="bookHelp" class="form-text">enter the book name in the field given below.</div>  
+              <input type="text" class="form-control" name="book_name" aria-describedby="bookHelp">
+            </div>
+            <div class="mb-3">
+              <label for="author_name" class="form-label">Author Name</label>
+              <div id="authorHelp" class="form-text">enter the Author name in field given below</div>  
+              <input type="text" class="form-control" name="author_name" aria-describedby="authorHelp">
+            </div>
+            <div class="mb-3">
+            <input type="checkbox" name="is_issueable" id="is_issueable" value="True">
+            <label class="form-check-label" for="is_issueable">Is issueable?</label>
+            </div>
+            <div class="mb-1">
+              <input type="number" name="quantity" id="quantity" max=100>
+              <label class="form-number-label" for="quantity">quantity</label>
+            </div>
+            <input type="submit" id="submit" class="btn btn-primary" type="button">
+          </form>   
+       </div> 
+       {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alret-dismissible-fade-show" role="alert">
+    <strong>Message:</strong>{{message}}
+          <button type='button' class='close' data-dismiss='alert' aria-label='close'>
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      {% endfor %}  
+    </div>
+  {% elif user.is_authenticated %}
+  <div class="container align-content-center">
+    <h2>This side is only for the library mangement!</h2>
+    </div>
+  {% else %}
+  <div class="container align-content-center">
+  <h2>Please login for more!</h2>
+  </div>
+ {% endif %}
+</div>
+
+{% endblock content %}

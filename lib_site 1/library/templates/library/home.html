@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<style>
+.jumbotron {
+  background-image: url({% static 'library/static_lib.png' %});
+  background-size: auto;
+}
+.container{
+  padding: 80px;
+}
+</style> 
+
+<div class="container">
+    
+     <div class="p-5 mb-4 bg-light rounded-3">
+     
+      <div class="container-fluid py-5">
+      
+        <h1 class="display-5 fw-bold">Welcome To The Online Library</h1>
+        <p class="col-md-8 fs-4">Login to get access to the books available.</p>
+           
+      </div>
+      
+    </div>
+    <div class="row align-items-md-stretch">
+      <div class="container col-l-7">
+        
+          <div class="h-100 p-5 text-bg-dark rounded-4">
+            <h2>Login into library</h2>
+            <p>Login to get access to the books available.</p>
+            <a class="btn btn-outline-light" type="button" href="{%url 'library:login'%}">Go to login page</a>
+          </div>   
+      </div>
+      <div class="container col-l-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Books Available</h2>
+          <p>see what books do we have in store for you to borrow</p>
+          <a class="btn btn-outline-secondary" type="button" href="{%url 'library:booklist'%}">Go to Books page</a>
+        </div>
+      </div>
+    </div>
+    {% for message in messages %}
+		    <div class="alert alert-{{ message.tags }} alret-dismissible-fade-show" role="alert">
+			<strong>Message:</strong>{{message}}
+            <button type='button' class='close' data-dismiss='alert' aria-label='close'>
+            <span aria-hidden="true">&times;</span>
+            </button>
+		    </div>
+		    {% endfor %}
+
+</div>
+
+{% endblock content %}
