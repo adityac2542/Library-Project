@@ -33,7 +33,8 @@ To rent books online from a library.(Type of an e-commerce website)
 # LOGIN PAGE
 <img src="venv\screenshots\Screenshot 2023-04-21 225915.png">
 
-# BOOKS PREVIEW
+# BOOKS PREVIEW 
+- On the left-corner we can see the user logged in.
 <img src="venv\screenshots\Screenshot 2023-04-21 230354.png">
 
 # SPECIAL ACCESS FOR LIBRARY MANAGEMENT(for showing access levels)
