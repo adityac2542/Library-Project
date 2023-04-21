@@ -22,6 +22,12 @@ To rent books online from a library.(Type of an e-commerce website)
 
 * Databases Created on postsql through django
 
+* Built relationship databases
+  - Many-to-One database
+  - Many-to-Many databse
+  - One-to-One databse
+  - Many-to-Many database
+
 # Scalability Aspects(scalable on features)
 - Order Viewing page
 - Tracking page
