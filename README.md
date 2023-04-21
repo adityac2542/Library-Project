@@ -4,7 +4,7 @@ To rent books online from a library.(Type of an e-commerce website)
 ## FEATURES
 * Order
   - For User to rent books from the Library.
-  
+
 * Login & Signup
   - For keeping track of the user profiles.
   - For keeping Track of their orders.
@@ -26,3 +26,15 @@ To rent books online from a library.(Type of an e-commerce website)
 - Order Viewing page
 - Tracking page
 - API connected to the database for extracting order details
+
+# HOME PAGE
+<img src="venv\screenshots\Screenshot 2023-04-21 225825.png">
+
+# LOGIN PAGE
+<img src="venv\screenshots\Screenshot 2023-04-21 225915.png">
+
+# BOOKS PREVIEW
+<img src="venv\screenshots\Screenshot 2023-04-21 230354.png">
+
+# SPECIAL ACCESS FOR LIBRARY MANAGEMENT(for showing access levels)
+<img src="venv\screenshots\Screenshot 2023-04-21 230410.png">
